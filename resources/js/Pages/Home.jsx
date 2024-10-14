@@ -1,6 +1,7 @@
 import Layout from "../Layouts/Layout"
 
-function Home() {
+function Home({ users }) {
+  console.log(users);
   return (
     <>
       <h1>Welcome Home</h1>
