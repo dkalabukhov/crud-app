@@ -13,7 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = users::all();
+        $users = users::latest()->get();
         return inertia('Home', ['users' => $users]);
     }
 
@@ -22,7 +22,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Create');
     }
 
     /**

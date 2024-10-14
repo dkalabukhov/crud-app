@@ -1,10 +1,19 @@
-import Layout from "../Layouts/Layout"
+import Layout from "../Layouts/Layout";
+import UsersTable from "../Components/UsersTable";
 
 function Home({ users }) {
-  console.log(users);
   return (
     <>
-      <h1>Welcome Home</h1>
+      {users
+      ? <>
+          <h1 className="main__title h2">Users table</h1>
+          <UsersTable data={users} />
+        </>
+      : <>
+          <h1 className="main__title h2">Users not found</h1>
+          <p className="main__no-users">Try to add some in "Create user" page</p>
+        </>
+      }
     </>
   )
 }

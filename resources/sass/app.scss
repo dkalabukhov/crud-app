@@ -74,7 +74,19 @@ ul {
   &__container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 2rem 2rem;
+  }
+
+  &__title {
+    color: teal;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  &__no-users {
+    color: teal;
+    text-align: center;
+    font-size: 1.5rem;
   }
 }
 
@@ -127,7 +139,7 @@ ul {
   }
   .main {
     &__container {
-      padding: 0;
+      padding: 0 0 2rem;
     }
   }
   .footer {
