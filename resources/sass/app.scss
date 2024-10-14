@@ -1,0 +1,149 @@
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: teal;
+  padding: 2rem 0;
+  color: #fff;
+
+  &__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+  }
+
+  &__title-link {
+    color: #fff;
+  }
+
+  &__list {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__link {
+    color: #fff;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.main {
+  background-color: lightgray;
+
+  &__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}
+
+.footer {
+  background-color: teal;
+  padding: 2rem 0;
+  color: #fff;
+
+  &__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  &__content {
+    text-align: center;
+    margin: 0;
+    position: relative;
+  }
+
+  &__link {
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__github-icon {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    transform: translateY(-50%);
+  }
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1280px) {
+  .header {
+    &__container {
+      padding: 0;
+    }
+  }
+  .main {
+    &__container {
+      padding: 0;
+    }
+  }
+  .footer {
+    &__container {
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    &__nav {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
