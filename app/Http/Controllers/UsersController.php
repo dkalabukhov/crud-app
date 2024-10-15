@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreusersRequest;
-use App\Http\Requests\UpdateusersRequest;
+use Illuminate\Http\Request;
 use App\Models\users;
 
 class UsersController extends Controller
@@ -28,9 +27,18 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreusersRequest $request)
+    public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'email' => ['required', 'email'],
+            'name' => ['required', 'min:2'],
+            'sex' => ['required'],
+            'birthday' => ['required', 'date']
+        ]);
+
+        users::create($fields);
+
+        return redirect('/');
     }
 
     /**
@@ -52,7 +60,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateusersRequest $request, users $users)
+    public function update(Request $request, users $users)
     {
         //
     }

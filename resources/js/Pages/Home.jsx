@@ -4,7 +4,7 @@ import UsersTable from "../Components/UsersTable";
 function Home({ users }) {
   return (
     <>
-      {users
+      {users.length > 0
       ? <>
           <h1 className="main__title h2">Users table</h1>
           <UsersTable data={users} />
