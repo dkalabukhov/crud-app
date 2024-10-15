@@ -83,7 +83,7 @@ ul {
     padding: 2rem 0;
   }
 
-  &__no-users {
+  &__paragraph {
     color: teal;
     text-align: center;
     font-size: 1.5rem;
@@ -91,6 +91,15 @@ ul {
 
   &__form {
     max-width: 50%;
+  }
+
+  &__info-icon {
+    width: 30px;
+    color: teal;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 

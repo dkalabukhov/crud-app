@@ -44,9 +44,9 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(users $users)
+    public function show(users $user)
     {
-        //
+        return inertia('Show', ['user' => $user]);
     }
 
     /**
@@ -54,7 +54,7 @@ class UsersController extends Controller
      */
     public function edit(users $users)
     {
-        //
+        // 
     }
 
     /**
@@ -68,8 +68,8 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(users $users)
+    public function destroy(users $user)
     {
-        //
+        $user->delete();
     }
 }
