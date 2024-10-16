@@ -11,6 +11,8 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+// Reset
+
 a {
   text-decoration: none;
 }
@@ -20,11 +22,28 @@ ul {
   margin: 0;
 }
 
+// Utils
+
+// Validation: [checkboxes] fix bootsrap padding
+
+.negative-margin {
+  margin-left: -24px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+// Page
+
 .page {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
+
+// Header
 
 .header {
   background-color: teal;
@@ -68,13 +87,17 @@ ul {
   }
 }
 
+// Main
+
 .main {
   background-color: lightgray;
+  overflow: hidden;
 
   &__container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem 2rem;
+
   }
 
   &__title {
@@ -86,7 +109,7 @@ ul {
   &__paragraph {
     color: teal;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   &__form {
@@ -102,6 +125,8 @@ ul {
     }
   }
 }
+
+// Form-group
 
 .form-group {
   &__date-picker {
@@ -121,6 +146,8 @@ ul {
     }
   }
 }
+
+// Footer
 
 .footer {
   background-color: teal;
@@ -158,11 +185,6 @@ ul {
   }
 }
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-}
-
 @media (min-width: 1280px) {
   .header {
     &__container {
@@ -188,6 +210,12 @@ ul {
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+    }
+  }
+
+  .main {
+    &__paragraph {
+      font-size: 1.5rem;
     }
   }
 }

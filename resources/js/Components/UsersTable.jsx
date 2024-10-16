@@ -84,6 +84,7 @@ export default function UsersTable({ data }) {
       columns={columns}
       dataSource={normalizedData}
       pagination={{ position: ['bottomCenter'] }}
+      scroll={{ x: true }}
     />
   )
 }
