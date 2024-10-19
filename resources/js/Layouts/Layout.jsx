@@ -8,7 +8,7 @@ export default function Layout({children}) {
           <div className="header__container">
             <nav className="header__nav">
               <Link className="header__title-link" href="/">
-               <h2 className="header__title h4">Inertia/React/Laravel CRUD app</h2>
+               <h2 className="header__title h4">CRUD app</h2>
               </Link>
               <ul className="header__list">
                 <li className="header__list-item">

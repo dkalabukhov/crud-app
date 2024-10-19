@@ -1,4 +1,5 @@
 @import 'bootstrap/scss/bootstrap';
+@import './radio.scss';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
@@ -23,12 +24,6 @@ ul {
 }
 
 // Utils
-
-// Validation: [checkboxes] fix bootsrap padding
-
-.negative-margin {
-  margin-left: -24px;
-}
 
 .flex-container {
   display: flex;
@@ -135,12 +130,31 @@ ul {
 // Form
 
 .form {
-  max-width: 50%;
+  max-width: 70%;
+
+  &__description {
+    margin-bottom: 0;
+  }
+
+  &__feedback-absolute {
+    position: absolute;
+  }
+
+  &__radio-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 1.7rem;
+    position: relative;
+  }
 }
 
 // Form-group
 
 .form-group {
+  position: relative;
+  padding-bottom: 1.7rem;
+
   &__date-picker {
     display: block;
     padding: 0.5rem 0.2rem;
@@ -157,6 +171,10 @@ ul {
       color: #fff;
     }
   }
+}
+
+.form-grup_extra-padding {
+  padding-bottom: 2.2rem;
 }
 
 // Footer
@@ -229,5 +247,9 @@ ul {
     &__info-paragraph {
       font-size: 1.5rem;
     }
+  }
+
+  .form {
+    max-width: 50%;
   }
 }
