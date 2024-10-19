@@ -6,7 +6,6 @@ require_once 'vendor/autoload.php';
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\users>
  */
@@ -20,6 +19,7 @@ class UsersFactory extends Factory
     public function definition(): array
     {
         $gender = $this->faker->randomElement(['male', 'female']);
+
         return [
             'email' => $this->faker->email(),
             'name' => $this->faker->name($gender),

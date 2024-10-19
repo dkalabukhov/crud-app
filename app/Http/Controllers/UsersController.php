@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Models\users;
 
 class UsersController extends Controller
 {
@@ -14,6 +14,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = users::latest()->get();
+
         return inertia('Home', ['users' => $users]);
     }
 
@@ -34,7 +35,7 @@ class UsersController extends Controller
             'email' => ['required', 'email'],
             'name' => ['required', 'min:2'],
             'sex' => ['required'],
-            'birthday' => ['required', 'date']
+            'birthday' => ['required', 'date'],
         ]);
 
         users::create($fields);
@@ -69,10 +70,10 @@ class UsersController extends Controller
             'email' => ['required', 'email'],
             'name' => ['required', 'min:2'],
             'sex' => ['required'],
-            'birthday' => ['required', 'date']
+            'birthday' => ['required', 'date'],
         ]);
 
-        $user -> update($fields);
+        $user->update($fields);
 
         return redirect('/')->with(
             'message', 'The user was updated successfully'

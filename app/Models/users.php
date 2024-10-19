@@ -15,5 +15,4 @@ class users extends Model
         'sex',
         'birthday',
     ];
-
 }
