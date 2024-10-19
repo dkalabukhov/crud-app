@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\users;
 
 class UsersController extends Controller
@@ -38,7 +39,9 @@ class UsersController extends Controller
 
         users::create($fields);
 
-        return redirect('/');
+        return redirect('/')->with(
+            'message', 'The user was created successfully'
+        );
     }
 
     /**
@@ -52,17 +55,28 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(users $users)
+    public function edit(users $user)
     {
-        // 
+        return Inertia('Edit', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, users $users)
+    public function update(Request $request, users $user)
     {
-        //
+        $fields = $request->validate([
+            'email' => ['required', 'email'],
+            'name' => ['required', 'min:2'],
+            'sex' => ['required'],
+            'birthday' => ['required', 'date']
+        ]);
+
+        $user -> update($fields);
+
+        return redirect('/')->with(
+            'message', 'The user was updated successfully'
+        );
     }
 
     /**
@@ -71,5 +85,6 @@ class UsersController extends Controller
     public function destroy(users $user)
     {
         $user->delete();
+        Session::flash('message', 'The user was deleted successfully');
     }
 }

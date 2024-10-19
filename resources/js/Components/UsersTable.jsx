@@ -16,10 +16,6 @@ export default function UsersTable({ data }) {
     destroy(`/users/${id}`);
   };
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
-  }
-
   const columns = [
     {
       title: 'Id',
@@ -66,9 +62,9 @@ export default function UsersTable({ data }) {
         if (record) {
           return(
             <Space size="small">
-              <form onSubmit={(e) => handleUpdate(e)}>
+              <Link href={route('users.edit', record)}>
                 <Button type='primary'>Edit</Button>
-              </form>
+              </Link>
               <form onSubmit={(e) => handleDelete(e, record.id)}>
                 <Button type='danger'>Delete</Button>
               </form>
