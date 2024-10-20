@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Inertia\Testing\AssertableInertia;
+use App\Models\users;
 
 class InertiaTest extends TestCase
 {
@@ -22,7 +23,7 @@ class InertiaTest extends TestCase
             );
     }
 
-    public function test_it_should_return_errors_when_required_fileds_fail_validation(): void
+    public function test_it_should_return_errors_when_required_fields_fail_validation(): void
     {
         $this->get(route('users.create'));
 
@@ -59,6 +60,46 @@ class InertiaTest extends TestCase
                     ->component('Home')
                     ->where('errors', [])
                     ->where('flash.message', 'The user was created successfully')
+                    ->where('users.0.email', 'daniil.kalabukhov@gmail.com')
+                    ->where('users.0.name', 'Daniil Kalabukhov')
+                    ->where('users.0.sex', 'male')
+                    ->where('users.0.birthday', '1998-06-08')
+            );
+    }
+
+    public function test_it_should_delete_the_user()
+    {
+        $user = users::factory()->create();
+
+        $this->delete(route('users.destroy', $user));
+
+        $this->assertDatabaseMissing('users', ['id' => $user->id]);
+    }
+
+    public function test_it_should_edit_the_user()
+    {
+        $user = users::factory()->create();
+
+        $newData = [
+            'name' => 'New Name',
+            'email' => 'newemail@example.com',
+            'sex' => 'male',
+            'birthday' => '1998-06-08',
+        ];
+
+        $this->get(route('users.show', $user))
+            ->assertOk();
+
+        $this->put(route('users.update', $user), $newData);
+
+        $this->get('/')
+            ->assertInertia(
+                fn (AssertableInertia $page) => $page
+                ->component('Home')
+                ->where('users.0.email', 'newemail@example.com')
+                ->Where('users.0.name', 'New Name')
+                ->where('users.0.sex', 'male')
+                ->where('users.0.birthday', '1998-06-08')
             );
     }
 }

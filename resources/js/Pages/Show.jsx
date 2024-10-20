@@ -11,7 +11,7 @@ function Show({ user }) {
       <div className="table-responsive">
         <table className="table">
           <thead>
-            <tr>
+            <tr className="table-success">
               <th>Id</th>
               <th>Email</th>
               <th>Name</th>
