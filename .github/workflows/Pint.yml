@@ -4,13 +4,10 @@ on: [push, pull_request]
 
 jobs:
   pint:
-  runs-on: ubuntu-24.04
-
-  steps:
-    - uses: actions/checkout@v3
-
-    - name: Install dependencies
-    run: composer install --no-progress --no-suggest --prefer-dist --no-interaction
-
-    - name: Run Pint for code check
-    run: vendor/bin/pint --test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist --no-interaction
+      - name: Run Pint for code check
+        run: vendor/bin/pint --test
