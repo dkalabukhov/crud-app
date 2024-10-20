@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-use Inertia\Testing\AssertableInertia;
 use App\Models\users;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia;
+use Tests\TestCase;
 
 class InertiaTest extends TestCase
 {
@@ -40,7 +40,6 @@ class InertiaTest extends TestCase
                     ->where('errors.birthday', 'The birthday field is required.')
             );
     }
-
 
     public function test_it_should_create_a_new_user(): void
     {
@@ -95,11 +94,11 @@ class InertiaTest extends TestCase
         $this->get('/')
             ->assertInertia(
                 fn (AssertableInertia $page) => $page
-                ->component('Home')
-                ->where('users.0.email', 'newemail@example.com')
-                ->Where('users.0.name', 'New Name')
-                ->where('users.0.sex', 'male')
-                ->where('users.0.birthday', '1998-06-08')
+                    ->component('Home')
+                    ->where('users.0.email', 'newemail@example.com')
+                    ->Where('users.0.name', 'New Name')
+                    ->where('users.0.sex', 'male')
+                    ->where('users.0.birthday', '1998-06-08')
             );
     }
 }
