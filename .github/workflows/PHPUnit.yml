@@ -87,7 +87,7 @@ jobs:
         run: npm i
 
       - name: Run Vite
-        run: npm run dev
+        run: npm run build
 
       - name: Test with phpunit
         run: vendor/bin/phpunit --coverage-text
