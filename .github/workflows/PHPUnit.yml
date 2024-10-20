@@ -2,7 +2,7 @@ name: PHPUnit with PostgreSQL
 on: [push, pull_request]
 jobs:
   laravel:
-    name: Laravel (PHP ${{ matrix.php-versions }})
+    name: CRUD tests PHPUnit with PostgreSQL
     runs-on: ubuntu-24.04
     env:
       BROADCAST_DRIVER: log
@@ -21,8 +21,8 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: 1998
+          POSTGRES_DB: users
         ports:
           - 5432/tcp
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
@@ -44,7 +44,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
+          php-version: 8.3
           extensions: mbstring, dom, fileinfo, pgsql
           coverage: xdebug
 
@@ -82,6 +82,9 @@ jobs:
         env:
           DB_PORT: ${{ job.services.postgres.ports[5432] }}
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+
+      - name: Run Vite
+        run: npm run dev
 
       - name: Test with phpunit
         run: vendor/bin/phpunit --coverage-text
