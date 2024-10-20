@@ -1,8 +1,8 @@
-name: PHPUnit with PostgreSQL
+name: CRUD tests
 on: [push, pull_request]
 jobs:
   laravel:
-    name: CRUD tests PHPUnit with PostgreSQL
+    name: PosgreSQL with PHPUtint - php
     runs-on: ubuntu-24.04
     env:
       BROADCAST_DRIVER: log
