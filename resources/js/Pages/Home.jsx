@@ -29,7 +29,7 @@ function Home({ users }) {
         </>
       : <>
           <h1 className="main__title h2">Users not found</h1>
-          <p className="main__info-paragraph">Try to add some in "Create user" page</p>
+          <p className="main__info-paragraph">Try to add some in &quot;Create user&quot; page</p>
         </>
       }
     </>
