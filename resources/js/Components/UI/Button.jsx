@@ -1,7 +1,6 @@
 import classNames from "classnames"
-import { router } from "@inertiajs/react";
 
-export default function Button({ type, children, userId }) {
+export default function Button({ type, children }) {
   const classes = classNames('btn', `btn-${type}`);
 
   return (

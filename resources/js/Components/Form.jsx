@@ -41,7 +41,7 @@ export default function Form({ user, id = null, email = '', name = '', sex = '',
       email: data.email.trim().toLowerCase(),
       name: data.name.trim(),
       sex: data.sex,
-      birthday: `${String(data.birthday.getDate()).padStart(2, '0')}-${String(data.birthday.getMonth() + 1).padStart(2, '0')}-${data.birthday.getFullYear()}`
+      birthday: dayjs(data.birthday).format('YYYY-MM-DD')
     };
     if (id) {
       updateUser(normalizedData);
